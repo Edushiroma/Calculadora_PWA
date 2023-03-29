@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora PWA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="/manifest.json">
+  <script defer src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+        try {
+          const registration = await navigator.serviceWorker.register('/sw.js');
+          console.log('ServiceWorker registrado com sucesso!', registration.scope);
+        } catch (err) {
+          console.error('Falha ao registrar o ServiceWorker:', err);
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <h1>Calculadora PWA</h1>
+  <div class="calculator">
+    <input type="text" id="input" readonly>
+    <button>C</button>
+    <button>CE</button>
+    <button>/</button>
+    <button>*</button>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>-</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>+</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button></button>
+    <button>0</button>
+    <button>.</button>
+    <button>=</button>
+  </div>
+</body>
+</html>
